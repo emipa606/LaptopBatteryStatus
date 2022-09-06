@@ -2,6 +2,7 @@
 <LanguageData>
   <BS.warningOn>Yellow when below {0}</BS.warningOn>
   <BS.criticalOn>Red when below {0}</BS.criticalOn>
+  <BS.autosaveOn>Autosave when below {0}</BS.autosaveOn>
   <BS.CurrentPercent>Battery: {0}</BS.CurrentPercent>
   <BS.NoBattery>No battery found</BS.NoBattery>
   <BS.Charging>Battery charging</BS.Charging>
@@ -10,5 +11,6 @@
   <BS.greenoncharge>Show green when charging</BS.greenoncharge>
   <BS.grayfull>Show gray on full battery</BS.grayfull>
   <BS.Full>Battery full</BS.Full>
+  <BS.Filename>Battery at {0}</BS.Filename>
   <BS.modversion>Installed mod-version: {0}</BS.modversion>
 </LanguageData>

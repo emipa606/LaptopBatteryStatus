@@ -47,6 +47,14 @@ internal class LaptopBatteryStatusMod : Mod
         settings.warningOn = Math.Max(settings.criticalOn, settings.warningOn);
 
         listing_Standard.Gap();
+        var autosaveRect = listing_Standard.GetRect(30);
+        GUI.color = startColor;
+        settings.autosaveOn = Widgets.HorizontalSlider(autosaveRect, settings.autosaveOn, 0f, 1f,
+            false,
+            "BS.autosaveOn".Translate(settings.autosaveOn.ToStringPercent()), 0f.ToStringPercent(),
+            1f.ToStringPercent());
+
+        listing_Standard.Gap();
         GUI.color = Color.green;
         listing_Standard.CheckboxLabeled("BS.greenoncharge".Translate(), ref settings.greenCharging);
         GUI.color = Color.gray;

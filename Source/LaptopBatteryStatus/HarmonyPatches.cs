@@ -13,6 +13,7 @@ namespace LaptopBatteryStatus;
 internal class HarmonyPatches
 {
     private static float cachedBatteryPercent;
+    private static float lastBatteryPercent;
     private static BatteryStatus cachedBatteryStatus;
     private static int timeToUpdate;
 
@@ -20,7 +21,7 @@ internal class HarmonyPatches
     {
         cachedBatteryPercent = SystemInfo.batteryLevel;
         cachedBatteryStatus = SystemInfo.batteryStatus;
-        timeToUpdate = 400;
+        timeToUpdate = 0;
         var harmony = new Harmony("Mlie.LaptopBatteryStatus");
         harmony.Patch(AccessTools.Method(typeof(GlobalControlsUtility), nameof(GlobalControlsUtility.DoDate)), null,
             new HarmonyMethod(typeof(HarmonyPatches), nameof(BatteryStatus_NearDatePostfix)));
@@ -35,6 +36,7 @@ internal class HarmonyPatches
         }
 
         timeToUpdate = 400;
+        lastBatteryPercent = cachedBatteryPercent;
 #if DEBUG
         cachedBatteryPercent -= 0.05f;
         if (cachedBatteryPercent <= 0)
@@ -45,10 +47,21 @@ internal class HarmonyPatches
         var values = Enum.GetValues(typeof(BatteryStatus));
         var random = new Random();
         cachedBatteryStatus = (BatteryStatus)values.GetValue(random.Next(values.Length));
+        if (LaptopBatteryStatusMod.settings.autosaveOn > cachedBatteryPercent &&
+            LaptopBatteryStatusMod.settings.autosaveOn < lastBatteryPercent)
+        {
+            GameDataSaveLoader.SaveGame("BS.Filename".Translate(cachedBatteryPercent.ToStringPercent()));
+        }
+
         return;
 #endif
         cachedBatteryPercent = SystemInfo.batteryLevel;
         cachedBatteryStatus = SystemInfo.batteryStatus;
+        if (LaptopBatteryStatusMod.settings.autosaveOn > cachedBatteryPercent &&
+            LaptopBatteryStatusMod.settings.autosaveOn < lastBatteryPercent)
+        {
+            GameDataSaveLoader.SaveGame("BS.Filename".Translate(cachedBatteryPercent.ToStringPercent()));
+        }
     }
 
     private static void BatteryStatus_NearDatePostfix(ref float curBaseY)
