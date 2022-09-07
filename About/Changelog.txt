@@ -1,5 +1,8 @@
 # Changelog for LaptopBatteryStatus
 
+1.3.2 - Added russian translation by Baknamy and Chinese translation by Huiqing998
+
+
 1.3.1 - Added optional autosave on defined battery-percent
 
 

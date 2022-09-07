@@ -5,7 +5,8 @@
 
 Shows your laptop battery status in the game, hopefully this will help you save before you run out of power.
 Changes color based on laptop percent batterypower left, limits configurable in the mod-settings.
-Also options for colors based on if the battery is currently charging or is already fully charged.
+There are options for colors based on if the battery is currently charging or is already fully charged.
+Also an optional autosave when below a defined percent, to the filename "Battery at X%".
 
 If you use this mod on a computer without a battery, it will just show ”No battery” instead.
 

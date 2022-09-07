@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <BS.warningOn>Желтым, когда ниже {0}</BS.warningOn>
+  <BS.criticalOn>Красным, когда ниже {0}</BS.criticalOn>
+  <BS.autosaveOn>Автосохранение, когда ниже {0}</BS.autosaveOn>
+  <BS.CurrentPercent>Батарея: {0}</BS.CurrentPercent>
+  <BS.NoBattery>Батарея не найдена</BS.NoBattery>
+  <BS.Charging>Зарядка батареи</BS.Charging>
+  <BS.Discharging>Разрядка батареи</BS.Discharging>
+  <BS.NotCharging>Батарея не заряжается</BS.NotCharging>
+  <BS.greenoncharge>Отображать зеленым цветом при зарядке батареи</BS.greenoncharge>
+  <BS.grayfull>Отображать серым цветом при полном заряде батареи</BS.grayfull>
+  <BS.Full>Батарея заряжена</BS.Full>
+  <BS.Filename>Батарея на {0}</BS.Filename>
+  <BS.modversion>Установленная версия мода: {0}</BS.modversion>
+</LanguageData>
