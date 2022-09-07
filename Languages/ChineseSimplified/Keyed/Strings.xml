@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--简体中文 - 译者：HuiQing-->
+<!--Simplified Chinese - Translator:HuiQing-->
+<LanguageData>
+  <BS.warningOn>当电量低于 {0} 时显示为黄色</BS.warningOn>
+  <BS.criticalOn>当电量低于 {0} 时显示为红色</BS.criticalOn>
+  <BS.autosaveOn>当电量低于 {0} 时自动保存存档</BS.autosaveOn>
+  <BS.CurrentPercent>当前电量 {0}</BS.CurrentPercent>
+  <BS.NoBattery>未检测到电池</BS.NoBattery>
+  <BS.Charging>正在充电</BS.Charging>
+  <BS.Discharging>正在放电</BS.Discharging>
+  <BS.NotCharging>停止充电</BS.NotCharging>
+  <BS.greenoncharge>充电时显示为绿色</BS.greenoncharge>
+  <BS.grayfull>充满时显示灰色</BS.grayfull>
+  <BS.Full>已充满</BS.Full>
+  <BS.Filename>{0} 电量自动保存</BS.Filename>
+  <BS.modversion>已安装模组版本: {0}</BS.modversion>
+</LanguageData>
