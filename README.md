@@ -10,6 +10,11 @@ Also an optional autosave when below a defined percent, to the filename "Battery
 
 If you use this mod on a computer without a battery, it will just show ”No battery” instead.
 
+Technically it uses a built in function of Unity (Rimworlds framework) so it should be usable on any platform.
+
+- Russian translation by Baknamy
+- Chinese translation by Huiqing998 
+
 Idea by: JukeboxTheGhoul
 
 ![Image](https://i.imgur.com/O0IIlYj.png)
