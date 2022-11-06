@@ -2,7 +2,7 @@
 <ModSyncNinjaData>
   <ID>91db9c50-9bdd-4781-bff2-0ad54a0dd29f</ID>
   <ModName>Laptop Battery Status</ModName>
-  <Version>1.4.1</Version>
+  <Version>1.4.2</Version>
   <SaveBreaking>False</SaveBreaking>
   <Host name="Github">
     <Owner>emipa606</Owner>

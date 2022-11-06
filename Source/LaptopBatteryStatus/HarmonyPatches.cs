@@ -70,7 +70,7 @@ internal class HarmonyPatches
         float rightMargin;
         Rect zlRect;
         Rect rect;
-        var startColor = GUI.color;
+        var startColor = GUI.contentColor;
 #if RELEASE
         if (cachedBatteryPercent < 0)
         {
@@ -92,7 +92,7 @@ internal class HarmonyPatches
 
             Widgets.Label(rect, "BS.NoBattery".Translate());
             Text.Anchor = TextAnchor.UpperLeft;
-            GUI.color = startColor;
+            GUI.contentColor = startColor;
             GUI.EndGroup();
 
             curBaseY -= zlRect.height;
@@ -101,21 +101,21 @@ internal class HarmonyPatches
 #endif
         if (cachedBatteryPercent < LaptopBatteryStatusMod.settings.warningOn)
         {
-            GUI.color = Color.yellow;
+            GUI.contentColor = Color.yellow;
         }
 
         if (cachedBatteryPercent < LaptopBatteryStatusMod.settings.criticalOn)
         {
-            GUI.color = Color.red;
+            GUI.contentColor = Color.red;
         }
 
         switch (cachedBatteryStatus)
         {
             case BatteryStatus.Charging when LaptopBatteryStatusMod.settings.greenCharging:
-                GUI.color = Color.green;
+                GUI.contentColor = Color.green;
                 break;
             case BatteryStatus.Full when LaptopBatteryStatusMod.settings.grayFull:
-                GUI.color = Color.gray;
+                GUI.contentColor = Color.gray;
                 break;
         }
 
@@ -136,7 +136,7 @@ internal class HarmonyPatches
 
         Widgets.Label(rect, "BS.CurrentPercent".Translate(cachedBatteryPercent.ToStringPercent()));
         Text.Anchor = TextAnchor.UpperLeft;
-        GUI.color = startColor;
+        GUI.contentColor = startColor;
         GUI.EndGroup();
         if (cachedBatteryStatus != BatteryStatus.Unknown)
         {
