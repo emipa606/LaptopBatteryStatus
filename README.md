@@ -1,5 +1,6 @@
 # LaptopBatteryStatus
-
+
+
 ![Image](https://i.imgur.com/buuPQel.png)
 
 
@@ -10,8 +11,9 @@ Also an optional autosave when below a defined percent, to the filename "Battery
 
 If you use this mod on a computer without a battery, it will just show ”No battery” instead.
 
-Technically it uses a built in function of Unity (Rimworlds framework) so it should be usable on any platform.
+On most platforms, this mod uses a built in function of Unity (Rimworld's framework). When running on a SteamDeck in SteamOS, Unity's battery functions don't provide accurate information, so the mod now uses information exposed by the Linux kernel via sysfs.
 
+- SteamDeck support by [Patrick Watson](https://github.com/watson81)
 - Russian translation by Baknamy
 - Chinese translation by Huiqing998 
 
