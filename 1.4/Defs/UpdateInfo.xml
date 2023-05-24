@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<TabulaRasa.UpdateDef Abstract="true" Name="LaptopBatteryStatus_UpdateInfoBase">
+		<linkUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2857288632</linkUrl>
+		<banner>UpdateInfo/LaptopBatteryStatus</banner>
+	</TabulaRasa.UpdateDef>
+	<TabulaRasa.UpdateDef ParentName="LaptopBatteryStatus_UpdateInfoBase">
+		<defName>LaptopBatteryStatus_1_4_3</defName>
+		<date>2023/5/24</date>
+		<content>Thanks to a PR from Patrick Watson this mod now also works on SteamDeck.
+It appears that Unity's battery functions either do not function properly on Linux or don't work within the SteamRT container used within the SteamDeck's version of SteamOS, which is based on Linux.
+The code now detects this particular OS variant and uses the Linux kernel's sysfs battery APIs to provide the same information that Unity does on other platforms.</content>
+	</TabulaRasa.UpdateDef>
+</Defs>
+

@@ -1,5 +1,8 @@
 # Changelog for LaptopBatteryStatus
 
+1.4.3 - Added support for SteamDeck, thanks to watson81!
+
+
 1.4.2 - Fixed the gray ui when no battery is found
 
 

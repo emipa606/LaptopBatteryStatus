@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<HugsLib.UpdateFeatureDef Abstract="true" Name="LaptopBatteryStatus_UpdateFeatureBase">
+		<modNameReadable>LaptopBatteryStatus</modNameReadable>
+		<linkUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2857288632</linkUrl>
+	</HugsLib.UpdateFeatureDef>
+	<HugsLib.UpdateFeatureDef ParentName="LaptopBatteryStatus_UpdateFeatureBase">
+		<defName>LaptopBatteryStatus_1_4_3</defName>
+		<assemblyVersion>1.4.3</assemblyVersion>
+		<content>Thanks to a PR from Patrick Watson this mod now also works on SteamDeck.
+It appears that Unity's battery functions either do not function properly on Linux or don't work within the SteamRT container used within the SteamDeck's version of SteamOS, which is based on Linux.
+The code now detects this particular OS variant and uses the Linux kernel's sysfs battery APIs to provide the same information that Unity does on other platforms.</content>
+	</HugsLib.UpdateFeatureDef>
+</Defs>
+

@@ -19,17 +19,17 @@
   <loadAfter>
     <li>brrainz.harmony</li>
   </loadAfter>
-  <description>[img]https://i.imgur.com/buuPQel.png[/img]
+  <description>[img]https://i.imgur.com/iCj5o7O.png[/img]
 
-Shows your laptop battery status in the game, hopefully this will help you save before you run out of power.
-Changes color based on laptop percent batterypower left, limits configurable in the mod-settings.
-There are options for colors based on if the battery is currently charging or is already fully charged.
-Also an optional autosave when below a defined percent, to the filename "Battery at X%".
+Shows your laptop battery status in the game, hopefully this will help you save before you run out of power. Changes color based on laptop percent batterypower left, limits configurable in the mod-settings. 
+
+There are options for colors based on if the battery is currently charging or is already fully charged. Also an optional autosave when below a defined percent, to the filename "Battery at X%".
 
 If you use this mod on a computer without a battery, it will just show ”No battery” instead.
 
-Technically it uses a built in function of Unity (Rimworlds framework) so it should be usable on any platform.
+On most platforms, this mod uses a built in function of Unity (Rimworld's framework). When running on a SteamDeck in SteamOS, Unity's battery functions don't provide accurate information, so the mod now uses information exposed by the Linux kernel via sysfs.
 
+- SteamDeck support by [url=https://github.com/watson81]Patrick Watson[/url]
 - Russian translation by Baknamy
 - Chinese translation by Huiqing998 
 
@@ -37,7 +37,7 @@ Idea by: JukeboxTheGhoul
 
 [table]
 	[tr]
-		[td][url=https://invite.gg/Mlie][img]https://i.imgur.com/zdzzBrc.png[/img][/url][/td]
+		[td][url=https://dsc.gg/mlie][img]https://i.imgur.com/zdzzBrc.png[/img][/url][/td]
 		[td][url=https://github.com/emipa606/LaptopBatteryStatus][img]https://i.imgur.com/kTkpTOE.png[/img][/url][/td]
     [/tr]
     [tr]
@@ -46,12 +46,12 @@ Idea by: JukeboxTheGhoul
     [/tr]
 [/table]
 
-[img]https://i.imgur.com/O0IIlYj.png[/img]
+[img]https://i.imgur.com/Ds0rBAD.png[/img]
 Since modding is just a hobby for me I expect no donations to keep modding. If you still want to show your support you can gift me anything from my [url=https://store.steampowered.com/wishlist/id/Mlie]Wishlist[/url] or buy me a cup of tea.
 
-[url=https://ko-fi.com/G2G55DDYD][img]https://i.imgur.com/Utx6OIH.png[/img][/url]
+[url=https://ko-fi.com/G2G55DDYD][img]https://i.imgur.com/VWG0yff.png[/img][/url]
 
-[img]https://i.imgur.com/PwoNOj4.png[/img]
+[img]https://i.imgur.com/5xwDG6H.png[/img]
 [list]
 [*] See if the the error persists if you just have this mod and its requirements active.
 [*] If not, try adding your other mods until it happens again.
@@ -61,5 +61,6 @@ Since modding is just a hobby for me I expect no donations to keep modding. If y
 [*] If you have the solution for a problem, please post it to the GitHub repository.
 [/list]
 
-</description>
+
+[url=https://steamcommunity.com/sharedfiles/filedetails/changelog/2857288632]Last updated 2023-05-24[/url]</description>
 </ModMetaData>
