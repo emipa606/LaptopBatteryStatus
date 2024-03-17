@@ -64,7 +64,7 @@ internal class HarmonyPatches
 
     private static void UpdateBatteryCache()
     {
-        // This may work for all Linux-like OSes but it is currently only tested on SteamDeck using steamrt
+        // This may work for all Linux-like OSes, but it is currently only tested on SteamDeck using steamrt
         // Consider modifying the following gate on the runtimeOS if it's shown to work elsewhere
         if (linuxBatteryPath != null && runtimeOS == OSVariants.SteamLinuxRuntime)
         {

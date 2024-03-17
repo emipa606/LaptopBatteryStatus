@@ -31,7 +31,7 @@ internal class LaptopBatteryStatusMod : Mod
         listing_Standard.Gap();
         var warningRect = listing_Standard.GetRect(30);
         GUI.color = Color.yellow;
-        settings.warningOn = Widgets.HorizontalSlider_NewTemp(warningRect, settings.warningOn, 0.01f, 1f, false,
+        settings.warningOn = Widgets.HorizontalSlider(warningRect, settings.warningOn, 0.01f, 1f, false,
             "BS.warningOn".Translate(settings.warningOn.ToStringPercent()), 0.01f.ToStringPercent(),
             1f.ToStringPercent());
         settings.criticalOn = Math.Min(settings.criticalOn, settings.warningOn);
@@ -39,7 +39,7 @@ internal class LaptopBatteryStatusMod : Mod
         listing_Standard.Gap();
         var criticalRect = listing_Standard.GetRect(30);
         GUI.color = Color.red;
-        settings.criticalOn = Widgets.HorizontalSlider_NewTemp(criticalRect, settings.criticalOn, 0.01f, 1f,
+        settings.criticalOn = Widgets.HorizontalSlider(criticalRect, settings.criticalOn, 0.01f, 1f,
             false,
             "BS.criticalOn".Translate(settings.criticalOn.ToStringPercent()), 0.01f.ToStringPercent(),
             1f.ToStringPercent());
@@ -48,7 +48,7 @@ internal class LaptopBatteryStatusMod : Mod
         listing_Standard.Gap();
         var autosaveRect = listing_Standard.GetRect(30);
         GUI.color = startColor;
-        settings.autosaveOn = Widgets.HorizontalSlider_NewTemp(autosaveRect, settings.autosaveOn, 0f, 1f,
+        settings.autosaveOn = Widgets.HorizontalSlider(autosaveRect, settings.autosaveOn, 0f, 1f,
             false,
             "BS.autosaveOn".Translate(settings.autosaveOn.ToStringPercent()), 0f.ToStringPercent(),
             1f.ToStringPercent());
