@@ -7,13 +7,13 @@ namespace LaptopBatteryStatus;
 
 internal class LaptopBatteryStatusMod : Mod
 {
-    public static LaptopBatteryStatusSettings settings;
+    public static LaptopBatteryStatusSettings Settings;
 
     private static string currentVersion;
 
     public LaptopBatteryStatusMod(ModContentPack content) : base(content)
     {
-        settings = GetSettings<LaptopBatteryStatusSettings>();
+        Settings = GetSettings<LaptopBatteryStatusSettings>();
         currentVersion =
             VersionFromManifest.GetVersionFromModMetaData(content.ModMetaData);
     }
@@ -26,50 +26,50 @@ internal class LaptopBatteryStatusMod : Mod
     public override void DoSettingsWindowContents(Rect inRect)
     {
         var startColor = GUI.color;
-        var listing_Standard = new Listing_Standard();
-        listing_Standard.Begin(inRect);
-        listing_Standard.Gap();
-        var warningRect = listing_Standard.GetRect(30);
+        var listingStandard = new Listing_Standard();
+        listingStandard.Begin(inRect);
+        listingStandard.Gap();
+        var warningRect = listingStandard.GetRect(30);
         GUI.color = Color.yellow;
-        settings.warningOn = Widgets.HorizontalSlider(warningRect, settings.warningOn, 0.01f, 1f, false,
-            "BS.warningOn".Translate(settings.warningOn.ToStringPercent()), 0.01f.ToStringPercent(),
+        Settings.WarningOn = Widgets.HorizontalSlider(warningRect, Settings.WarningOn, 0.01f, 1f, false,
+            "BS.warningOn".Translate(Settings.WarningOn.ToStringPercent()), 0.01f.ToStringPercent(),
             1f.ToStringPercent());
-        settings.criticalOn = Math.Min(settings.criticalOn, settings.warningOn);
+        Settings.CriticalOn = Math.Min(Settings.CriticalOn, Settings.WarningOn);
 
-        listing_Standard.Gap();
-        var criticalRect = listing_Standard.GetRect(30);
+        listingStandard.Gap();
+        var criticalRect = listingStandard.GetRect(30);
         GUI.color = Color.red;
-        settings.criticalOn = Widgets.HorizontalSlider(criticalRect, settings.criticalOn, 0.01f, 1f,
+        Settings.CriticalOn = Widgets.HorizontalSlider(criticalRect, Settings.CriticalOn, 0.01f, 1f,
             false,
-            "BS.criticalOn".Translate(settings.criticalOn.ToStringPercent()), 0.01f.ToStringPercent(),
+            "BS.criticalOn".Translate(Settings.CriticalOn.ToStringPercent()), 0.01f.ToStringPercent(),
             1f.ToStringPercent());
-        settings.warningOn = Math.Max(settings.criticalOn, settings.warningOn);
+        Settings.WarningOn = Math.Max(Settings.CriticalOn, Settings.WarningOn);
 
-        listing_Standard.Gap();
-        var autosaveRect = listing_Standard.GetRect(30);
+        listingStandard.Gap();
+        var autosaveRect = listingStandard.GetRect(30);
         GUI.color = startColor;
-        settings.autosaveOn = Widgets.HorizontalSlider(autosaveRect, settings.autosaveOn, 0f, 1f,
+        Settings.AutosaveOn = Widgets.HorizontalSlider(autosaveRect, Settings.AutosaveOn, 0f, 1f,
             false,
-            "BS.autosaveOn".Translate(settings.autosaveOn.ToStringPercent()), 0f.ToStringPercent(),
+            "BS.autosaveOn".Translate(Settings.AutosaveOn.ToStringPercent()), 0f.ToStringPercent(),
             1f.ToStringPercent());
 
-        listing_Standard.Gap();
+        listingStandard.Gap();
         GUI.color = Color.green;
-        listing_Standard.CheckboxLabeled("BS.greenoncharge".Translate(), ref settings.greenCharging);
+        listingStandard.CheckboxLabeled("BS.greenoncharge".Translate(), ref Settings.GreenCharging);
         GUI.color = Color.gray;
-        listing_Standard.CheckboxLabeled("BS.grayfull".Translate(), ref settings.grayFull);
+        listingStandard.CheckboxLabeled("BS.grayfull".Translate(), ref Settings.GrayFull);
         GUI.color = startColor;
 
         if (currentVersion != null)
         {
-            listing_Standard.Gap();
+            listingStandard.Gap();
             GUI.contentColor = Color.gray;
-            listing_Standard.Label("BS.modversion".Translate(currentVersion));
+            listingStandard.Label("BS.modversion".Translate(currentVersion));
             GUI.contentColor = Color.white;
         }
 
-        listing_Standard.End();
+        listingStandard.End();
 
-        settings.Write();
+        Settings.Write();
     }
 }

@@ -9,9 +9,9 @@ namespace LaptopBatteryStatus;
 
 internal static class OSVariants
 {
-    public static OSPlatform SteamOS { get; } = OSPlatform.Create("STEAMOS");
+    private static OSPlatform SteamOS { get; } = OSPlatform.Create("STEAMOS");
 
-    public static OSPlatform SteamDeck { get; } =
+    private static OSPlatform SteamDeck { get; } =
         OSPlatform.Create("STEAMDECK"); // The SteamDeck's main OS, which is a varient of SteamOS
 
     // Steam's runtime system; depending on version this could be linker (LD_LIBARY_PATH) based or container based. This is what's normally visible to games.
@@ -34,7 +34,7 @@ internal static class OSVariants
         {
             try
             {
-                var osRelease = ParseOSRelease("/etc/os-release");
+                var osRelease = parseOSRelease("/etc/os-release");
                 if (osRelease.GetValueOrDefault("ID") == "steamos")
                 {
                     return osRelease.GetValueOrDefault("VARIANT_ID") == "steamdeck" ? SteamDeck : SteamOS;
@@ -58,7 +58,7 @@ internal static class OSVariants
         return OSPlatform.Create("UNKNOWN");
     }
 
-    private static Dictionary<string, string> ParseOSRelease(string path)
+    private static Dictionary<string, string> parseOSRelease(string path)
     {
         // Regex matches <optionally quoted string> = <optionally quoted string>
         var r = new Regex(@"""?([^""=]+)""?\s*=\s*""?([^""=]+)""?");

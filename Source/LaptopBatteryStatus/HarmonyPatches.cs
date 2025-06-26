@@ -124,8 +124,8 @@ internal class HarmonyPatches
         }
 #else // if !DEBUG
         UpdateBatteryCache();
-        if (LaptopBatteryStatusMod.settings.autosaveOn > cachedBatteryPercent &&
-            LaptopBatteryStatusMod.settings.autosaveOn < lastBatteryPercent)
+        if (LaptopBatteryStatusMod.Settings.AutosaveOn > cachedBatteryPercent &&
+            LaptopBatteryStatusMod.Settings.AutosaveOn < lastBatteryPercent)
         {
             GameDataSaveLoader.SaveGame("BS.Filename".Translate(cachedBatteryPercent.ToStringPercent()));
         }
@@ -167,22 +167,22 @@ internal class HarmonyPatches
             return;
         }
 #endif
-        if (cachedBatteryPercent < LaptopBatteryStatusMod.settings.warningOn)
+        if (cachedBatteryPercent < LaptopBatteryStatusMod.Settings.WarningOn)
         {
             GUI.contentColor = Color.yellow;
         }
 
-        if (cachedBatteryPercent < LaptopBatteryStatusMod.settings.criticalOn)
+        if (cachedBatteryPercent < LaptopBatteryStatusMod.Settings.CriticalOn)
         {
             GUI.contentColor = Color.red;
         }
 
         switch (cachedBatteryStatus)
         {
-            case BatteryStatus.Charging when LaptopBatteryStatusMod.settings.greenCharging:
+            case BatteryStatus.Charging when LaptopBatteryStatusMod.Settings.GreenCharging:
                 GUI.contentColor = Color.green;
                 break;
-            case BatteryStatus.Full when LaptopBatteryStatusMod.settings.grayFull:
+            case BatteryStatus.Full when LaptopBatteryStatusMod.Settings.GrayFull:
                 GUI.contentColor = Color.gray;
                 break;
         }

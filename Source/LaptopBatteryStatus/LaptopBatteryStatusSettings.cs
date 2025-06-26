@@ -4,19 +4,19 @@ namespace LaptopBatteryStatus;
 
 internal class LaptopBatteryStatusSettings : ModSettings
 {
-    public float autosaveOn;
-    public float criticalOn = 0.1f;
-    public bool grayFull = true;
-    public bool greenCharging = true;
-    public float warningOn = 0.25f;
+    public float AutosaveOn;
+    public float CriticalOn = 0.1f;
+    public bool GrayFull = true;
+    public bool GreenCharging = true;
+    public float WarningOn = 0.25f;
 
     public override void ExposeData()
     {
         base.ExposeData();
-        Scribe_Values.Look(ref warningOn, "warningOn", 0.25f);
-        Scribe_Values.Look(ref criticalOn, "criticalOn", 0.1f);
-        Scribe_Values.Look(ref autosaveOn, "autosaveOn");
-        Scribe_Values.Look(ref greenCharging, "greenCharging", true);
-        Scribe_Values.Look(ref grayFull, "grayFull", true);
+        Scribe_Values.Look(ref WarningOn, "warningOn", 0.25f);
+        Scribe_Values.Look(ref CriticalOn, "criticalOn", 0.1f);
+        Scribe_Values.Look(ref AutosaveOn, "autosaveOn");
+        Scribe_Values.Look(ref GreenCharging, "greenCharging", true);
+        Scribe_Values.Look(ref GrayFull, "grayFull", true);
     }
 }
