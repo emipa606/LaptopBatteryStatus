@@ -9,7 +9,7 @@ using Verse;
 namespace LaptopBatteryStatus;
 
 [StaticConstructorOnStartup]
-internal class HarmonyPatches
+internal static class HarmonyPatches
 {
     private static float cachedBatteryPercent;
     private static float lastBatteryPercent;
@@ -21,12 +21,6 @@ internal class HarmonyPatches
     static HarmonyPatches()
     {
         runtimeOS = OSVariants.GetRuntimeOS();
-#if DEBUG
-        Log.Message(
-            $"[LaptopBatteryStatus] RuntimeInformation.IsOSPlatform is Linux? {RuntimeInformation.IsOSPlatform(OSPlatform.Linux)}");
-        Log.Message($"[LaptopBatteryStatus] RuntimeInformation.OSDescription is [{RuntimeInformation.OSDescription}]");
-        Log.Message($"[LaptopBatteryStatus] Detected OS is {runtimeOS}");
-#endif
         linuxBatteryPath = null;
         if (runtimeOS.IsLinuxLike())
         {
@@ -38,9 +32,6 @@ internal class HarmonyPatches
             foreach (var d in Directory.GetDirectories("/sys/class/power_supply/", "BAT*"))
             {
                 var dir = $"{d}/";
-#if DEBUG
-                Log.Message($"[LaptopBatteryStatus] checking battery candidate [{dir}]");
-#endif
                 if (!File.Exists($"{dir}status") ||
                     !File.Exists($"{dir}capacity"))
                 {
@@ -50,9 +41,6 @@ internal class HarmonyPatches
                 linuxBatteryPath = dir;
                 break;
             }
-#if DEBUG
-            Log.Message($"[LaptopBatteryStatus] Using battery at path [{linuxBatteryPath}]");
-#endif
         }
 
         UpdateBatteryCache();
@@ -108,28 +96,12 @@ internal class HarmonyPatches
 
         timeToUpdate = 400;
         lastBatteryPercent = cachedBatteryPercent;
-#if DEBUG
-        cachedBatteryPercent -= 0.05f;
-        if (cachedBatteryPercent <= 0)
-        {
-            cachedBatteryPercent = 1f;
-        }
-
-        var values = Enum.GetValues(typeof(BatteryStatus));
-        cachedBatteryStatus = (BatteryStatus)values.GetValue(Rand.Range(0, values.Length - 1));
-        if (LaptopBatteryStatusMod.settings.autosaveOn > cachedBatteryPercent &&
-            LaptopBatteryStatusMod.settings.autosaveOn < lastBatteryPercent)
-        {
-            GameDataSaveLoader.SaveGame("BS.Filename".Translate(cachedBatteryPercent.ToStringPercent()));
-        }
-#else // if !DEBUG
         UpdateBatteryCache();
         if (LaptopBatteryStatusMod.Settings.AutosaveOn > cachedBatteryPercent &&
             LaptopBatteryStatusMod.Settings.AutosaveOn < lastBatteryPercent)
         {
             GameDataSaveLoader.SaveGame("BS.Filename".Translate(cachedBatteryPercent.ToStringPercent()));
         }
-#endif
     }
 
     private static void BatteryStatus_NearDatePostfix(ref float curBaseY)
@@ -139,7 +111,6 @@ internal class HarmonyPatches
         Rect zlRect;
         Rect rect;
         var startColor = GUI.contentColor;
-#if RELEASE
         if (cachedBatteryPercent < 0)
         {
             GUI.contentColor = Color.gray;
@@ -166,7 +137,7 @@ internal class HarmonyPatches
             curBaseY -= zlRect.height;
             return;
         }
-#endif
+
         if (cachedBatteryPercent < LaptopBatteryStatusMod.Settings.WarningOn)
         {
             GUI.contentColor = Color.yellow;

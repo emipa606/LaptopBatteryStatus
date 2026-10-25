@@ -61,7 +61,7 @@ internal static class OSVariants
     private static Dictionary<string, string> parseOSRelease(string path)
     {
         // Regex matches <optionally quoted string> = <optionally quoted string>
-        var r = new Regex(@"""?([^""=]+)""?\s*=\s*""?([^""=]+)""?");
+        var r = new Regex(@"""?([^""=]+)""?\s*=\s*""?([^""=]+)""?", RegexOptions.None, TimeSpan.FromSeconds(1));
 
         var rc = new Dictionary<string, string>();
         foreach (var fullLine in File.ReadAllLines(path))
@@ -72,7 +72,7 @@ internal static class OSVariants
             }
 
             var line = fullLine.TrimStart();
-            if (line.StartsWith("#"))
+            if (line.StartsWith('#'))
             {
                 continue;
             }
